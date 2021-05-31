@@ -19,3 +19,11 @@ A ideia desse projeto é aprender na prática tecnicas e metodos de programaçã
 
 
 
+waves - 
+
+PP = Periodo (s)
+VV = 4.1 = (vento em metro por segundo )
+HS = 84 = altura das ondads
+DV = 81 (provavelmente direção do vento)
+DP = 155 (direção da ondulação)
+
