@@ -1,6 +1,6 @@
 /* eslint-disable node/no-extraneous-import */
 import {describe, test, jest, beforeEach} from '@jest/globals';
-import {SurfLineMapperClass} from '@app/mapper/surfline/implementations/surfline-mapper';
+import {SurfLineMapperClass} from '@app/mapper/surfline/implementations/surfline.mapper';
 import {SurfLineMapper} from '@app/mapper/surfline/surfline';
 import {SurflineDataMock} from '../../shared/mocks/surfline-data-mock';
 describe('Surfline Mappers', () => {

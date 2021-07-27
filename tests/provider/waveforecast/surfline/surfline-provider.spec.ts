@@ -1,5 +1,5 @@
 /* eslint-disable node/no-extraneous-import */
-import {SurfLineProvider} from '@app/provider/waveforecast/implementations/surfline/surfline-provider';
+import {SurfLineProvider} from '@app/provider/waveforecast/implementations/surfline/surfline.provider';
 import {describe, test, jest, expect, afterAll} from '@jest/globals';
 import axios from 'axios';
 describe('SurfLineProvider', () => {

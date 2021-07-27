@@ -1,13 +1,13 @@
 /* eslint-disable node/no-extraneous-import */
 import {describe, test, jest, expect, beforeEach} from '@jest/globals';
-import {WaveForecastFactory} from '@app/factory/waveforecast/implementations/waveforecast-factory';
+import {WaveForecastFactory} from '@app/factory/waveforecast/implementations/waveforecast.factory';
 import axios from 'axios';
 describe('WaveForecast', () => {
   test('Check if factory is calling provider methods', async () => {
     const axiosSpy = jest.spyOn(axios, 'get').mockResolvedValue('');
     const response = await (await WaveForecastFactory.createInstance()).execute(
       {
-        provider: 'surfLine',
+        provider: 'surfline',
         spot: 'ule',
       }
     );

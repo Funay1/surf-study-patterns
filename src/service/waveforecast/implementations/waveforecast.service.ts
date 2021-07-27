@@ -1,6 +1,6 @@
 import {WaveForecastProvider} from '@app/provider/waveforecast/waveforecast';
 import {MissingProvider} from '@app/shared/errors/MissingProvider';
-import {WaveForecastService} from '../waveforecast-service';
+import {WaveForecastService} from '../waveforecast.service';
 
 export class WaveForecastServiceClass implements WaveForecastService {
   constructor(

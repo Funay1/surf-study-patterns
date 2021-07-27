@@ -2,7 +2,7 @@
 import {STATUS_CODE} from '@app/controller/controller';
 import {MissingProvider} from '@app/shared/errors/MissingProvider';
 import {describe, test, expect, jest, beforeEach} from '@jest/globals';
-import {WaveforecastController} from '@app/controller/waveforecast/implementations/waveforecast-controller';
+import {WaveforecastController} from '@app/controller/waveforecast/implementations/waveforecast.controller';
 
 describe('WaveForecastController test Input Params', () => {
   const mockUseCase = {

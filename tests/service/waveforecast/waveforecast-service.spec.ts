@@ -1,6 +1,6 @@
 /* eslint-disable node/no-extraneous-import */
 import {describe, test, jest, expect, beforeEach} from '@jest/globals';
-import {WaveForecastServiceClass} from '@app/service/waveforecast/implementations/waveforecast-service';
+import {WaveForecastServiceClass} from '@app/service/waveforecast/implementations/waveforecast.service';
 import {WaveForecastProviderMock} from './mocks/waveforecast-gateway-mock';
 describe('SurfLineService', () => {
   beforeEach(() => {

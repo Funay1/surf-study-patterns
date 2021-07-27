@@ -8,14 +8,16 @@ export class SurfLineProvider implements WaveForecastProvider {
     this.config = providersConfig.filter(e => e.provider === 'surfline')[0];
   }
   async getForecast(spot: string): Promise<unknown> {
-    return axios.get(`${this.config.baseURL}${this.config.endpoints.wave}`, {
-      params: {
-        spotId: spot,
-        days: 6,
-        intervalHours: 1,
-        maxHeights: true,
-        sds: true,
-      },
-    });
+    return (
+      await axios.get(`${this.config.baseURL}${this.config.endpoints.wave}`, {
+        params: {
+          spotId: spot,
+          days: 6,
+          intervalHours: 1,
+          maxHeights: true,
+          sds: true,
+        },
+      })
+    ).data;
   }
 }
