@@ -18,4 +18,28 @@ describe('Surfline Mappers', () => {
     );
     expect(obtainedDomainWave.length).toEqual(0);
   });
+  test('Check if returned swells structure is correct', async () => {
+    const swellKeys = ['direction', 'height', 'period'];
+    const surfLineMapper: SurfLineMapper = new SurfLineMapperClass();
+    const surfLineData = SurflineDataMock.aSurflineData().build();
+
+    const obtainedDomainWave = surfLineMapper.surfLineWaveToDomain(
+      surfLineData
+    );
+    const obtainedKeys = Object.keys(obtainedDomainWave[0].swells[0]);
+    const hasAllKeys = swellKeys.every(el => obtainedKeys.includes(el));
+    expect(hasAllKeys).toBeTruthy();
+  });
+  test('Check if returned swells structure is correct', async () => {
+    const heightKeys = ['min', 'max', 'unit'];
+    const surfLineMapper: SurfLineMapper = new SurfLineMapperClass();
+    const surfLineData = SurflineDataMock.aSurflineData().build();
+
+    const obtainedDomainWave = surfLineMapper.surfLineWaveToDomain(
+      surfLineData
+    );
+    const obtainedKeys = Object.keys(obtainedDomainWave[0].height);
+    const hasAllKeys = heightKeys.every(el => obtainedKeys.includes(el));
+    expect(hasAllKeys).toBeTruthy();
+  });
 });
