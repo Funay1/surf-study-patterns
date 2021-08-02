@@ -1,8 +1,8 @@
 import Domain from '@Domain';
-import SurfLine from '@Surfline';
+import {surfline} from '@app/model/surfline';
 import {SurfLineMapper} from '../surfline';
 export class SurfLineMapperClass implements SurfLineMapper {
-  surfLineWaveToDomain(surfLineData: SurfLine.data): Domain.wave[] {
+  surfLineWaveToDomain(surfLineData: surfline.SurflineData): Domain.wave[] {
     return surfLineData.data.wave.map(
       (wave): Domain.wave => {
         return {

@@ -1,12 +1,12 @@
 // import { WaveForecastController } from '@app/controller/waveforecast/implementations/waveforecast-controller';
 import {WaveforecastController} from '@app/controller/waveforecast/implementations/waveforecast.controller';
-import {SurfLineProvider} from '@app/provider/waveforecast/implementations/surfline/surfline.provider';
+import {SurfLineProviderClass} from '@app/provider/surfline/implementations/surfline/surfline.provider';
 import {WaveForecastServiceClass} from '@app/service/waveforecast/implementations/waveforecast.service';
-import {WaveForecastUseCase} from '@app/usecase/waveforecast/implementations/waveforecast-usecase';
+import {WaveForecastUseCase} from '@app/usecase/waveforecast/implementations/waveforecast.usecase';
 
 export class WaveForecastFactory {
   static createInstance(): WaveforecastController {
-    const surfLineProvider = new SurfLineProvider();
+    const surfLineProvider = new SurfLineProviderClass();
     const waveForecastService = new WaveForecastServiceClass({
       surfline: surfLineProvider,
     });

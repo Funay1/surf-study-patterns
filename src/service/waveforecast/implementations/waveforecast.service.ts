@@ -1,22 +1,25 @@
-import {WaveForecastProvider} from '@app/provider/waveforecast/waveforecast';
+import {SurflineProvider} from '@app/provider/surfline/surfline.provider';
 import {MissingProvider} from '@app/shared/errors/MissingProvider';
 import {WaveForecastService} from '../waveforecast.service';
 
+type providers = {
+  surfline: SurflineProvider;
+};
+
 export class WaveForecastServiceClass implements WaveForecastService {
-  constructor(
-    private contextProviders: {[key: string]: WaveForecastProvider}
-  ) {}
-  private getProvider(provider: string) {
-    return this.contextProviders[provider];
-  }
+  constructor(private contextProviders: providers) {}
   async getWaveForecast(search: {
     provider: string;
     spot: string;
   }): Promise<unknown> {
-    const provider = this.getProvider(search.provider);
-    if (!provider) {
-      throw new MissingProvider(search.provider);
+    const provider = search.provider.toLowerCase();
+    switch (provider) {
+      case 'surfline': {
+        return this.contextProviders.surfline.getForecast(search.spot);
+      }
+      default: {
+        throw new MissingProvider(provider);
+      }
     }
-    return provider.getForecast(search.spot);
   }
 }

@@ -40,21 +40,16 @@ export class WaveforecastController extends ControllerBase {
         body,
       };
     } catch (e) {
-      console.error(`Unexpected Error ${e}`);
       if (e instanceof MissingProvider) {
         return {
           statusCode: STATUS_CODE.BAD_REQUEST,
           body: {
-            message: `Unexpected ${e.message} Provider`,
+            message: 'Unexpected Provider',
           },
         };
+      } else {
+        throw e;
       }
-      return {
-        statusCode: STATUS_CODE.INTERNAL_SERVER_ERROR,
-        body: {
-          message: 'Unexpect error',
-        },
-      };
     }
   }
 }

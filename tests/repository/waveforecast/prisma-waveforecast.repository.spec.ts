@@ -15,7 +15,6 @@ describe('waveforecast repository test', () => {
       },
       swells: [],
     });
-    console.log(typeof result);
     expect(typeof result).not.toBeNull();
   });
 });

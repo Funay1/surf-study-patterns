@@ -2,7 +2,7 @@ import {STATUS_CODE} from '@app/controller/controller';
 // eslint-disable-next-line node/no-extraneous-import
 import {describe, test, expect, jest, beforeEach} from '@jest/globals';
 import {ControllerBase} from '@app/controller/controller-base';
-import {ControllerMock} from './mock/controller-mock';
+import {ControllerMock} from './mock/controller.mock';
 describe('Controller test', () => {
   const controllerBase = new ControllerBase();
   beforeEach(() => {

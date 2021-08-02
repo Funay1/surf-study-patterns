@@ -5,18 +5,16 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "test": "jest",
-    "test2": "NODE_OPTIONS=--experimental-vm-modules npx jest --runInBand --config ./jest.config.js --watchAll --testPathPattern=tests",
-    "test:cov": "NODE_OPTIONS=--experimental-vm-modules npx jest --runInBand --config ./jest.config.js --testPathPattern=tests --coverage",
+    "start:dev": "ts-node-dev -r tsconfig-paths/register src/server.ts",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --runInBand --config ./jest.config.js --watchAll --testPathPattern=tests",
+    "test:cov": "NODE_ENV='test' NODE_OPTIONS=--experimental-vm-modules npx jest --runInBand --config ./jest.config.js --testPathPattern=tests --coverage",
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
     "fix": "gts fix",
     "prepare": "npm run compile",
-    "pretest2:cov": "rm -rf build && npm run compile",
-    "posttest2:cov": "npm run lint",
-    "pretest2": "rm -rf build && npm run compile",
-    "posttest2": "npm run lint"
+    "posttest:cov": "npm run lint",
+    "posttest": "npm run lint"
   },
   "keywords": [],
   "author": "Douglas Funayama Tavares",

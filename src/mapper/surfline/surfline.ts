@@ -1,5 +1,5 @@
 import Domain from '@Domain';
-import SurfLine from '@Surfline';
+import {surfline} from '@app/model/surfline';
 export interface SurfLineMapper {
-  surfLineWaveToDomain(surfLineData: SurfLine.data): Domain.wave[];
+  surfLineWaveToDomain(surfLineData: surfline.SurflineData): Domain.wave[];
 }

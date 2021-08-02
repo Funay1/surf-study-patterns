@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  nodejs-waveforecast:
+    build: .
+    command: npm run start:dev
+    volumes:
+      - .:/home/node/app
+      - /home/node/app/node_modules
+    environment:
+      NODE_ENV: development
+    depends_on:
+      - postgres-waveforecast
+    networks:
+      - app-connect
+    ports:
+      - '3000:3000'
+
+  postgres-waveforecast:
+    container_name: postgres-waveforecast
+    image: postgres:11.2-alpine
+    restart: unless-stopped
+    volumes:
+      - postgres-waveforecast-data:/data
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+    networks:
+      - app-connect
+
+volumes:
+  postgres-waveforecast-data:
+
+networks:
+  app-connect:
+    driver: bridge

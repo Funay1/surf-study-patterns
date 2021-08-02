@@ -1,8 +1,2 @@
-declare module '@Surfline' {
-  export interface data {
-    associated: Associated;
-    data: {
-      wave: Wave[];
-    };
-  }
-}
+export * from './surfline.model';
+export * from './associated.model';

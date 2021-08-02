@@ -1,6 +1,6 @@
-import express, {Response, Request} from 'express';
+import express, {Response, Request, NextFunction} from 'express';
 import 'express-async-errors';
-import {routes} from './handler/index';
+import {routes} from './shared/index';
 
 import 'dotenv/config';
 
@@ -10,11 +10,14 @@ app.use(express.json());
 
 app.use(routes);
 
-app.use((err: Error, request: Request, response: Response) => {
-  return response.status(500).json({
-    status: 'error',
-    message: `Internal server error - ${err}`,
-  });
-});
+app.use(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  (err: Error, request: Request, response: Response, next: NextFunction) => {
+    return response.status(500).json({
+      status: 'error',
+      message: 'Internal server error',
+    });
+  }
+);
 
 export {app};
